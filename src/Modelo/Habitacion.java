@@ -31,4 +31,5 @@ private final int numero;
     public String getEtiqueta() {
         return "Hab. " + numero + " - " + getTipo();
     }
+    
 }
