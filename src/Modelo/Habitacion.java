@@ -24,10 +24,8 @@ private final int numero;
 
     public abstract int getCapacidadMaxima();
 
-    /** Tarifa por noche en colones enteros. */
     public abstract long getTarifaPorNoche();
 
-    /** Texto para mostrar la habitación en un JComboBox. */
     public String getEtiqueta() {
         return "Hab. " + numero + " - " + getTipo();
     }
