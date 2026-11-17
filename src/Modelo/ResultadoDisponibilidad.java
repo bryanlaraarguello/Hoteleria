@@ -11,7 +11,6 @@ public class ResultadoDisponibilidad {
     public ResultadoDisponibilidad(LocalDate fecha, int cantidad, ArrayList<Habitacion> habitaciones) {
         this.fecha = fecha;
         this.cantidad = cantidad;
-        // Copia propia: quien creó el resultado no puede alterarlo después
         this.habitaciones = new ArrayList<>();
         for (Habitacion h : habitaciones) {
             this.habitaciones.add(h);

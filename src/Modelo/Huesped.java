@@ -37,7 +37,6 @@ public class Huesped {
         return correo;
     }
 
-    /** Texto para mostrar el huésped en un JComboBox. */
     public String getEtiqueta() {
         return identificacion + " - " + nombreCompleto;
     }
