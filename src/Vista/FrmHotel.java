@@ -6,6 +6,7 @@ package Vista;
 import Controladores.ControladorHotel;
 import Controladores.ProcesosListener;
 import Modelo.IndicadoresHotel;
+import Modelo.Reserva;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -1115,6 +1116,12 @@ public class FrmHotel extends javax.swing.JFrame {
     );
 
     actualizarTablaHuespedes();
+    
+    cmbHuesped.setModel(
+    new DefaultComboBoxModel<>(
+        controlador.obtenerEtiquetasHuespedes().toArray(new String[0])
+    )
+    );
 
     JOptionPane.showMessageDialog(
         this,
@@ -1146,6 +1153,12 @@ public class FrmHotel extends javax.swing.JFrame {
     );
 
     actualizarTablaHabitaciones();
+    
+    cmbHabitacion.setModel(
+    new DefaultComboBoxModel<>(
+        controlador.obtenerEtiquetasHabitaciones().toArray(new String[0])
+    )
+    );
 
     JOptionPane.showMessageDialog(
         this,
@@ -1178,7 +1191,62 @@ public class FrmHotel extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodigoActionPerformed
 
     private void btnRegistrarReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarReservasActionPerformed
-        // TODO add your handling code here:
+        try {
+
+    // Validar que se hayan seleccionado las fechas
+    if (jDateChooser2.getDate() == null ||
+        jDateChooser3.getDate() == null) {
+
+        throw new IllegalArgumentException(
+            "Debe seleccionar las fechas de entrada y salida."
+        );
+    }
+
+    // Convertir las fechas al formato esperado por el Controlador
+    String fechaEntrada =
+        new java.text.SimpleDateFormat("yyyy-MM-dd")
+            .format(jDateChooser2.getDate());
+
+    String fechaSalida =
+        new java.text.SimpleDateFormat("yyyy-MM-dd")
+            .format(jDateChooser3.getDate());
+
+    // Registrar la reserva
+    Reserva reserva = controlador.registrarReserva(
+        cmbHuesped.getSelectedIndex(),
+        cmbHabitacion.getSelectedIndex(),
+        spnPersonas.getValue().toString(),
+        fechaEntrada,
+        fechaSalida
+    );
+
+    // Actualizar tabla
+    actualizarTablaReservas();
+
+    // Mostrar información de la reserva
+    txtCodigo.setText(reserva.getCodigo());
+    txtNoches.setText(String.valueOf(reserva.getNoches()));
+    txtImporte.setText("₡" + reserva.getImporteTotal());
+    txtRecepcionista.setText(
+        reserva.getRecepcionista().getNombre()
+    );
+    txtEstado.setText(reserva.getEstado());
+
+    JOptionPane.showMessageDialog(
+        this,
+        "Reserva registrada correctamente.\n"
+        + "Código: " + reserva.getCodigo()
+    );
+
+} catch (IllegalArgumentException ex) {
+
+    JOptionPane.showMessageDialog(
+        this,
+        ex.getMessage(),
+        "Error de registro",
+        JOptionPane.ERROR_MESSAGE
+    );
+}
     }//GEN-LAST:event_btnRegistrarReservasActionPerformed
 
     private void txtRecepcionistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRecepcionistaActionPerformed
@@ -1202,7 +1270,35 @@ public class FrmHotel extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbHabitacionActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
+        try {
+
+        // Validar que se haya seleccionado una fecha.
+        if (jDateChooser4.getDate() == null) {
+
+            throw new IllegalArgumentException(
+                "Debe seleccionar una fecha para consultar."
+            );
+        }
+
+        // Convertir la fecha al formato yyyy-MM-dd.
+        String fecha = new java.text.SimpleDateFormat("yyyy-MM-dd")
+                .format(jDateChooser4.getDate());
+
+        // Consultar disponibilidad mediante el controlador.
+        String resultado = controlador.consultarDisponibilidad(fecha);
+
+        // Mostrar los resultados.
+        txtHabitaciones.setText(resultado);
+
+    } catch (IllegalArgumentException ex) {
+
+        JOptionPane.showMessageDialog(
+            this,
+            ex.getMessage(),
+            "Consulta de disponibilidad",
+            JOptionPane.ERROR_MESSAGE
+        );
+    }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void txtCodigoReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoReservaActionPerformed
