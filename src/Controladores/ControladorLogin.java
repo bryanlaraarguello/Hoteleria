@@ -5,6 +5,7 @@
 package Controladores;
 import Modelo.GestorHotel;
 import Modelo.Recepcionista;
+import Vista.FrmHotel;
 import Vista.FrmLogin;
 /**
  *

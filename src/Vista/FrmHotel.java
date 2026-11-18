@@ -602,6 +602,11 @@ public class FrmHotel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FrmHotel().setVisible(true));
     }
+    private ControladorHotel controlador;
+
+    private void configurarVista() {
+    controlador = new ControladorHotel();
+    }
     
     public void setRecepcionista(String nombre) {
     lblRecepcionista.setText("Recepcionista: " + nombre);
