@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -79,29 +83,20 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="36" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="36" pref="45" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="lblRecepcionista" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="bntCambiarUsuario" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="lblRecepcionista" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="bntCambiarUsuario" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="tabPrincipal" min="-2" pref="325" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tabPrincipal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="520" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -161,7 +156,7 @@
                                   <Component id="pnlIndicadores" min="-2" pref="171" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnEjecutarProcesos" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="79" max="32767" attributes="0"/>
+                                  <EmptySpace pref="284" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -363,7 +358,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="923" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="926" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                   <Component id="pnlFormHuespedes" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -371,7 +366,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="291" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="496" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="pnlFormHuespedes" min="-2" max="-2" attributes="0"/>
@@ -409,7 +404,7 @@
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="txtNombreCompleto1" min="-2" pref="104" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -424,7 +419,7 @@
                                           </Group>
                                           <Component id="jScrollPane1" alignment="0" min="-2" pref="452" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="455" max="32767" attributes="0"/>
+                                      <EmptySpace pref="458" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -434,28 +429,22 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblIdentificacion" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtIdentificacion" min="-2" pref="18" max="-2" attributes="0"/>
+                                          <Component id="txtIdentificacion" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lbllNombre" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                              <Component id="txtNombre" pref="0" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtNombreCompleto1" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNombreCompleto1" min="-2" pref="24" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblCorreo" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Component id="txtCorreo" pref="0" max="32767" attributes="0"/>
-                                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtCorreo" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -463,8 +452,8 @@
                                           <Component id="bntLimpiarHuesped" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" min="-2" pref="125" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jScrollPane1" pref="139" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -537,6 +526,9 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Limpiar"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntLimpiarHuespedActionPerformed"/>
+                              </Events>
                             </Component>
                             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                               <AuxValues>
@@ -602,7 +594,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="923" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="926" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                   <Component id="pnlFormHabitaciones" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -610,7 +602,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="291" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="496" max="32767" attributes="0"/>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="pnlFormHabitaciones" min="-2" max="-2" attributes="0"/>
@@ -664,7 +656,7 @@
                                           </Group>
                                           <Component id="jScrollPane2" alignment="0" min="-2" pref="452" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="455" max="32767" attributes="0"/>
+                                      <EmptySpace pref="458" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -672,36 +664,33 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblIdentificacion1" max="32767" attributes="0"/>
-                                          <Component id="txtnumero" pref="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblIdentificacion1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtnumero" min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="lbllNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cmbTipo" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtCapacidad" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                                          <Component id="cmbTipo" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblCorreo1" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                              <Component id="txtTarifa" min="-2" pref="17" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtCapacidad" min="-2" pref="26" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblCorreo1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtTarifa" min="-2" pref="27" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="btnRegistrarHab" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnLimpiarHab" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane2" min="-2" pref="125" max="-2" attributes="0"/>
-                                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane2" pref="140" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -769,6 +758,9 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Limpiar"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarHabActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JComboBox" name="cmbTipo">
                               <Properties>
@@ -781,6 +773,9 @@
                                   </StringArray>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbTipoActionPerformed"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
@@ -854,7 +849,10 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel1" alignment="0" pref="291" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -907,12 +905,12 @@
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <Component id="lblEntrada" min="-2" max="-2" attributes="0"/>
                                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                              <Component id="jdcEntrada" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <Component id="lblSalida" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="jdcSalida" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <Component id="lblNoches" min="-2" max="-2" attributes="0"/>
@@ -934,7 +932,7 @@
                                                       <Component id="jScrollPane3" min="-2" pref="603" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
+                                              <EmptySpace pref="7" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="lblEstado" min="-2" max="-2" attributes="0"/>
@@ -957,70 +955,79 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="txtCodigo" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtCodigo" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                                   <Component id="lblCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="lblHuesped" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="cmbHuesped" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="cmbHuesped" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="lblHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="cmbHabitacion" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="cmbHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="lblPersonas" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="spnPersonas" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                                                  <Component id="spnPersonas" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lblEntrada" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jdcEntrada" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                      <Component id="lblEntrada" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jDateChooser2" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="lblSalida" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jdcSalida" min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                      <Component id="lblSalida" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jDateChooser3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="lblNoches" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtNoches" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtNoches" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="lblImporte" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtImporte" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtImporte" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="lblRecepcionista1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtRecepcionista" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtRecepcionista" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="lblEstado" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtEstado" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="txtEstado" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="jScrollPane3" min="-2" pref="211" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="btnRegistrarReservas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="btnLimpiarReservas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnRegistrarReservas" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="txtTarifa1" min="-2" pref="17" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                                      <Component id="txtTarifa1" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                       <Component id="lblCodigo6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="20" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1265,9 +1272,9 @@
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                               </AuxValues>
                             </Component>
-                            <Component class="com.toedter.calendar.JDateChooser" name="jdcEntrada">
+                            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
                             </Component>
-                            <Component class="com.toedter.calendar.JDateChooser" name="jdcSalida">
+                            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1313,24 +1320,24 @@
                                           <Component id="pnlResultado" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="lblFechaConsulta" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jdcFecha" min="-2" pref="171" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jDateChooser4" min="-2" pref="159" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="btnConsultar" min="-2" pref="85" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="531" max="32767" attributes="0"/>
+                                      <EmptySpace pref="533" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jdcFecha" min="-2" pref="18" max="-2" attributes="0"/>
                                           <Component id="lblFechaConsulta" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnConsultar" min="-2" pref="18" max="-2" attributes="0"/>
+                                          <Component id="jDateChooser4" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="pnlResultado" max="32767" attributes="0"/>
@@ -1347,8 +1354,6 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Fecha de Consulta:"/>
                               </Properties>
-                            </Component>
-                            <Component class="com.toedter.calendar.JDateChooser" name="jdcFecha">
                             </Component>
                             <Component class="javax.swing.JButton" name="btnConsultar">
                               <Properties>
@@ -1384,7 +1389,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblHabitaciones" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jScrollPane4" pref="130" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane4" pref="335" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -1410,6 +1415,8 @@
                                 </Container>
                               </SubComponents>
                             </Container>
+                            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser4">
+                            </Component>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -1491,7 +1498,7 @@
                                           <Component id="btnCheckIn" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnCheckOut" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="65" max="32767" attributes="0"/>
+                                      <EmptySpace pref="270" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1706,16 +1713,15 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="lblFechaReferencia" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jdcReferencia" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jDateChooser5" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btnSimular" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jScrollPane5" min="-2" pref="369" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="544" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="547" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1728,14 +1734,16 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblFechaReferencia" max="32767" attributes="0"/>
-                                          <Component id="jdcReferencia" pref="0" max="32767" attributes="0"/>
-                                          <Component id="btnSimular" pref="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="lblFechaReferencia" max="32767" attributes="0"/>
+                                              <Component id="btnSimular" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="jDateChooser5" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lblMensaje" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="11" max="32767" attributes="0"/>
+                                      <EmptySpace pref="212" max="32767" attributes="0"/>
                                       <Component id="jScrollPane5" min="-2" pref="205" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1750,8 +1758,6 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Fecha de Referencia:"/>
                               </Properties>
-                            </Component>
-                            <Component class="com.toedter.calendar.JDateChooser" name="jdcReferencia">
                             </Component>
                             <Component class="javax.swing.JButton" name="btnSimular">
                               <Properties>
@@ -1813,6 +1819,8 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Importante: Simulaci&#xf3;n informativa: no modifica los estados reales."/>
                               </Properties>
+                            </Component>
+                            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser5">
                             </Component>
                           </SubComponents>
                         </Container>

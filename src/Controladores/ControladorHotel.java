@@ -33,24 +33,14 @@ public class ControladorHotel {
     public static final String[] COLUMNAS_SIMULACION =
             {"Código", "Huésped", "Habitación", "Entrada", "Estado actual"};
 
-    // static: si se cambia de usuario (nuevo FrmHotel / nuevo controlador) se sigue sabiendo
-    // si hay procesos activos, y así no se inicia una segunda pareja de hilos.
-    // Solo se leen y escriben desde el EDT (el botón y el invokeLater final), por eso
-    // no necesitan sincronización.
     private static boolean procesosActivos = false;
     private static Thread hiloSupervisor;
     private static Thread hiloActualizador;
 
     private final GestorHotel gestor = GestorHotel.getInstancia();
 
-    private ProcesosListener listener;   // quién recibe los avisos de los hilos (la vista)
-    private int hilosPendientes = 0;     // cuántos de los dos hilos aún no terminan
-
-    // ==================================================================
-    // Sesión
-    // ==================================================================
-
-    /** Texto para la etiqueta del recepcionista activo. */
+    private ProcesosListener listener;  
+    private int hilosPendientes = 0;     
     public String getNombreRecepcionistaActivo() {
         if (gestor.getSesionActiva() == null) {
             return "";
@@ -58,25 +48,14 @@ public class ControladorHotel {
         return gestor.getSesionActiva().getNombre();
     }
 
-    /** Llamar solo cuando el usuario CONFIRMÓ el diálogo de "Cambiar usuario". Los datos se conservan. */
     public void cerrarSesion() {
         gestor.cerrarSesion();
     }
-
-    /**
-     * Revisión de vencidas al cargar la sesión (llamar al abrir FrmHotel).
-     * Devuelve el mensaje de éxito para mostrar en un JOptionPane.
-     */
     public String revisarVencidasAlCargarSesion() {
         int actualizadas = gestor.marcarVencidas(LocalDate.now());
         return "Revisión de reservas vencidas realizada correctamente.\n"
                 + "Reservas actualizadas a Vencida: " + actualizadas;
     }
-
-    // ==================================================================
-    // Huéspedes
-    // ==================================================================
-
     public void registrarHuesped(String identificacion, String nombre, String telefono, String correo) {
         gestor.registrarHuesped(identificacion, nombre, telefono, correo);
     }
@@ -89,8 +68,6 @@ public class ControladorHotel {
         }
         return filas;
     }
-
-    /** Textos para el JComboBox de huéspedes. La posición del combo coincide con la posición en la lista. */
     public ArrayList<String> obtenerEtiquetasHuespedes() {
         ArrayList<String> etiquetas = new ArrayList<>();
         for (Huesped h : gestor.obtenerHuespedes()) {
@@ -98,17 +75,9 @@ public class ControladorHotel {
         }
         return etiquetas;
     }
-
-    // ==================================================================
-    // Habitaciones
-    // ==================================================================
-
-    /** Para llenar el JComboBox de tipos (Individual, Doble, Familiar). */
     public String[] obtenerTiposHabitacion() {
         return HabitacionFactory.TIPOS;
     }
-
-    /** tipo = jCBTipo.getSelectedItem().toString() (igual que en el ejemplo de clase). */
     public void registrarHabitacion(String numeroTexto, String tipo) {
         if (numeroTexto == null || numeroTexto.isBlank()) {
             throw new IllegalArgumentException("El número de habitación es obligatorio.");
@@ -120,6 +89,21 @@ public class ControladorHotel {
             throw new IllegalArgumentException("El número de habitación debe ser un número entero.");
         }
         gestor.registrarHabitacion(numero, tipo);
+    }
+    
+    public String[] obtenerDetallesTipoHabitacion(String tipo) {
+
+    Habitacion habitacion =
+        HabitacionFactory.crearHabitacion(tipo, 1);
+
+    if (habitacion == null) {
+        return null;
+    }
+
+    return new String[]{
+        String.valueOf(habitacion.getCapacidadMaxima()),
+        String.valueOf(habitacion.getTarifaPorNoche())
+    };
     }
 
     public ArrayList<Object[]> obtenerFilasHabitaciones() {
@@ -140,18 +124,6 @@ public class ControladorHotel {
         return etiquetas;
     }
 
-    // ==================================================================
-    // Reservas, check-in y check-out
-    // ==================================================================
-
-    /**
-     * @param posicionHuesped    jCBHuesped.getSelectedIndex() (-1 si no hay selección)
-     * @param posicionHabitacion jCBHabitacion.getSelectedIndex()
-     * @param personasTexto      texto del campo cantidad de personas
-     * @param entradaTexto       texto "aaaa-mm-dd"
-     * @param salidaTexto        texto "aaaa-mm-dd"
-     * @return la reserva creada (para mostrar su código)
-     */
     public Reserva registrarReserva(int posicionHuesped, int posicionHabitacion, String personasTexto,
             String entradaTexto, String salidaTexto) {
         ArrayList<Huesped> huespedes = gestor.obtenerHuespedes();
@@ -209,11 +181,6 @@ public class ControladorHotel {
         return gestor.realizarCheckOut(codigoReserva);
     }
 
-    // ==================================================================
-    // Disponibilidad y simulación
-    // ==================================================================
-
-    /** Texto listo para mostrar, por ejemplo: "Habitaciones disponibles el 2026-11-25: 3" + números. */
     public String consultarDisponibilidad(String fechaTexto) {
         LocalDate fecha = convertirFecha(fechaTexto);
         ResultadoDisponibilidad resultado = gestor.consultarDisponibilidad(fecha);
@@ -231,7 +198,7 @@ public class ControladorHotel {
         return texto;
     }
 
-    /** Solo informativa: NO modifica los estados reales. */
+    
     public ArrayList<Object[]> simularVencimientos(String fechaReferenciaTexto) {
         LocalDate fechaReferencia = convertirFecha(fechaReferenciaTexto);
         ArrayList<Object[]> filas = new ArrayList<>();
@@ -242,11 +209,6 @@ public class ControladorHotel {
         return filas;
     }
 
-    // ==================================================================
-    // Indicadores y procesos concurrentes
-    // ==================================================================
-
-    /** Foto actual de los indicadores (para mostrarlos al abrir la ventana). */
     public IndicadoresHotel obtenerIndicadores() {
         return gestor.calcularIndicadores();
     }
@@ -255,11 +217,6 @@ public class ControladorHotel {
         return procesosActivos;
     }
 
-    /**
-     * Botón "Ejecutar procesos de supervisión" (se llama desde el EDT). Crea los dos Thread,
-     * los inicia sin esperar al otro y REGRESA INMEDIATAMENTE (no usa join en el EDT).
-     * Los resultados llegan al listener dentro del EDT.
-     */
     public void ejecutarProcesosSupervision(ProcesosListener listener) {
         if (procesosActivos) {
             throw new IllegalArgumentException("Los procesos de supervisión ya están en ejecución.");
@@ -285,23 +242,14 @@ public class ControladorHotel {
         }
     }
 
-    // ---- Métodos que llaman los hilos (corren en los hilos, NO en el EDT) ----
-
-    /** Pasa al EDT los indicadores intermedios del ActualizadorIndicadores. */
     public void publicarIndicadores(IndicadoresHotel indicadores) {
         SwingUtilities.invokeLater(() -> listener.indicadoresActualizados(indicadores));
     }
 
-    /** Pasa al EDT el mensaje final del SupervisorReservas. */
     public void publicarResumenSupervision(String mensaje) {
         SwingUtilities.invokeLater(() -> listener.supervisionFinalizada(mensaje));
     }
 
-    /**
-     * Cada hilo la llama al terminar. El ÚLTIMO en terminar hace la actualización final de
-     * los indicadores (en su propio hilo, sin crear un tercero y sin bloquear el EDT)
-     * y entrega el resultado definitivo a la vista en el EDT.
-     */
     public void hiloTerminado() {
         if (descontarHiloPendiente()) {
             IndicadoresHotel finales = gestor.calcularIndicadores();
@@ -320,11 +268,6 @@ public class ControladorHotel {
         return hilosPendientes == 0;
     }
 
-    // ==================================================================
-    // Auxiliares de conversión
-    // ==================================================================
-
-    /** Texto "aaaa-mm-dd" -> LocalDate. */
     private LocalDate convertirFecha(String texto) {
         if (texto == null || texto.isBlank()) {
             throw new IllegalArgumentException("La fecha es obligatoria (formato aaaa-mm-dd).");
