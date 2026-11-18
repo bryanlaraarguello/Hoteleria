@@ -3,7 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-
+import Controladores.ControladorHotel;
+import Controladores.ProcesosListener;
+import Modelo.IndicadoresHotel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author nicol
@@ -17,6 +25,7 @@ public class FrmHotel extends javax.swing.JFrame {
      */
     public FrmHotel() {
         initComponents();
+          configurarVista();
     }
 
     /**
@@ -593,6 +602,11 @@ public class FrmHotel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FrmHotel().setVisible(true));
     }
+    
+    public void setRecepcionista(String nombre) {
+    lblRecepcionista.setText("Recepcionista: " + nombre);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;

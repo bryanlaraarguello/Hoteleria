@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Controladores.ControladorLogin;
+
 /**
  *
  * @author nicol
@@ -155,8 +157,32 @@ public class FrmLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmLogin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+    FrmLogin login = new FrmLogin();
+
+    new ControladorLogin(login);
+
+    login.setLocationRelativeTo(null);
+    login.setVisible(true);
+});
     }
+    
+    public String getUsuario() {
+    return txtUsuario.getText().trim();
+    }
+
+    public String getContrasena() {
+    return new String(txtContraseña.getPassword());
+    }
+
+    public void mostrarMensaje(String mensaje) {
+    lblMensaje.setText(mensaje);
+    }
+
+    public void agregarEventoLogin(java.awt.event.ActionListener evento) {
+    btnIniciarSesion.addActionListener(evento);
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
